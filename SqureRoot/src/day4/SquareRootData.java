@@ -3,11 +3,14 @@ package day4;
 public class SquareRootData {
 
 	public static void main(String[] args) {
-		int num =64;
+		int num =49;
 		System.out.println("***********First Approach*******************");
 		System.out.println(bruteForceTechnix(num));
 		System.out.println("***********Second Approach*******************");
 		System.out.println(binarySearchTechnix(num));
+		System.out.println("***********Third Approach*******************");
+		System.out.println(thirdSqrt(num));
+		
 	}
 	
 	private static long binarySearchTechnix(int num) {
@@ -38,6 +41,15 @@ public class SquareRootData {
 			}
 		}
 		return data;
+	}
+	
+	private static int thirdSqrt(int num) {
+		long sum = (long) num;
+		while(sum*sum > num) {
+			System.out.println(num/sum);
+			sum = (sum+ num/sum)/2;
+		}
+		return (int)sum;
 	}
 
 }
