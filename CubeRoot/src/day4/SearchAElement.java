@@ -14,7 +14,8 @@ public class SearchAElement {
         int q = 4;//sc.nextInt();
         for(int j=1; j<=q; j++) {
             int k = sc.nextInt();
-            System.out.println(binarySearch(arr,num,k));
+            //System.out.println(binarySearch(arr,num,k));
+            System.out.println(binarSearchElement(arr,k));
         }
     }
     
@@ -26,11 +27,29 @@ public class SearchAElement {
                 high=mid-1;
             else if(arr[mid]<k)
                 low = mid+1;
-            else if(arr[mid] == k)
+            else 
                 return true;
                 
         }
         return false;
+    }
+    
+    static boolean binarSearchElement(int[] ar, int key) {
+        boolean status= false;
+        int low= 0,high =ar.length-1,mid;
+        while(low<=high) {
+            mid = (low+high)/2;
+            if(ar[mid]>key) {
+                high = mid -1;
+            } else if(ar[mid]< key) {
+                low = mid+1;
+            } else {
+                status = true;
+                break;
+            }
+        }
+        
+        return status;
     }
 
 }

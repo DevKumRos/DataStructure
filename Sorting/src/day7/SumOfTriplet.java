@@ -4,7 +4,7 @@ public class SumOfTriplet {
 
 	public static void main(String[] args) {
 		int[] ar = {-5,-2,3,5,8,10,12,25};
-		int m =99;
+		int m =6;
 		System.out.println("************First Approach** O(n3)***********");
 		System.out.println(bruteForeceTechnic(ar, m));
 		System.out.println("************Binary Search Approach Approach** O(n^2*logn)***********");
@@ -21,10 +21,10 @@ public class SumOfTriplet {
 		boolean status =false;
 		int counter =0;
 		for(int i=0; i<num; i++) {
-			for(int j=0; j<num; j++) {
-				for(int k=0; k<num; k++) {
+			for(int j=i+1; j<num; j++) {
+				for(int k=j+1; k<num; k++) {
 					counter++;
-					if(i!=j && j!=k && i!=k && ar[i]+ar[j]+ar[k]== m) {
+					if( ar[i]+ar[j]+ar[k]== m) {
 						status= true;
 						break;
 					}
@@ -64,7 +64,7 @@ public class SumOfTriplet {
 		System.out.println(counter);
 		return status;
 	}
-	
+	//{-5,-2,3,5,8,10,12,25}	
 	private static boolean ThreePointerApproach(int[] ar, int m) {
 		boolean status = false;
 		int num = ar.length;
@@ -78,8 +78,9 @@ public class SumOfTriplet {
 					high--;
 				} else if(ar[low]+ar[high]<val) {
 					low++;
-				} else if(low != i && high != i) {
-					status = true;
+				} else  {
+					if(low != i && high != i)
+						status = true;
 					break;
 				}
 			}
