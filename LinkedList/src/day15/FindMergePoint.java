@@ -15,8 +15,8 @@ public class FindMergePoint {
 		node.addNode(6);
 		node1.last.next = node.last;
 		node.addNode(5);
-		//findMergePointOfLinkedList(node, node1);
-		secondApproach(node, node1);
+		findMergePointOfLinkedList(node, node1);
+		//secondApproach(node, node1);
 	}
 
 	private static void secondApproach(Node<Integer> node, Node<Integer> node1) {
